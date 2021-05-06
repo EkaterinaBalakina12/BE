@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login page</title>
+</head>
+<body>
+    <form >
+        <p>
+            <label>login: </label>
+            <input id="login" name="login" type="text"/>
+        </p>
+        <p>
+            <label>password: </label>
+            <input id="password" name="password" type="password"/>
+        </p>  
+
+        <input type="submit" onClick="submitForm()"/>
+    </form>
+
+    <script>
+        function submitForm()
+            {
+                let name = document.getElementById("login").value;
+                let parol = document.getElementById("password").value;
+                
+                let xhr = new XMLHttpRequest();
+                xhr.open('GET', 'service.jsp?login='+ name +'&password='+parol);
+                xhr.send();
+                xhr.onload = function() {
+                    alert(xhr.responseText);
+                }
+            }
+    </script>
+</body>
+</html>
